@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Image Gallery</title>
+    <style>
+        #gallery-container {
+            padding: 20px;
+        }
+        #image-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 10px !important;
+        }
+        #image-grid img {
+            width: 100% !important;
+            aspect-ratio: 3 / 4 !important;
+            object-fit: cover !important;
+            border-radius: 10px !important;
+            cursor: pointer !important;
+            transition: transform 0.3s ease !important;
+        }
+        #image-grid img:hover {
+            transform: scale(1.05) !important;
+        }
+        #lightbox {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0, 0, 0, 0.8) !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            transition: opacity 0.3s ease, visibility 0.3s !important;
+        }
+        #lightbox.active {
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        #lightbox img {
+            max-width: 90vw !important;
+            max-height: 90vh !important;
+            border-radius: 10px !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="gallery-container">
+        <div id="image-grid">
+            <img src="./assets/img/bg1.jpg" alt="Image 1" onclick="openLightbox(this.src)">
+            <img src="./assets/img/bg1.jpg" alt="Image 2" onclick="openLightbox(this.src)">
+            <img src="./assets/img/bg1.jpg" alt="Image 3" onclick="openLightbox(this.src)">
+            <img src="./assets/img/bg1.jpg" alt="Image 4" onclick="openLightbox(this.src)">
+            <img src="./assets/img/bg1.jpg" alt="Image 5" onclick="openLightbox(this.src)">
+            <img src="./assets/img/bg1.jpg" alt="Image 6" onclick="openLightbox(this.src)">
+        </div>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Enlarged Image">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
