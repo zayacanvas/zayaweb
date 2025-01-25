@@ -87,19 +87,30 @@
     <div class="section">
       <div class="container">
         <div class="title">
-          <h1>The CANVAS</h1>
+          <h1>The Canvas</h1>
         </div>
         <div class="container">
-          <div id="gallery-container">
-            <div id="image-grid">
-                <img class="imgpad" src="./assets/img/pic1.jpg" alt="Image 1" onclick="openLightbox(this.src)">
-                <img src="./assets/img/pic2.jpg" alt="Image 2" onclick="openLightbox(this.src)">
-                <img src="./assets/img/pic3.jpg" alt="Image 3" onclick="openLightbox(this.src)">
-                <img src="./assets/img/pic4.jpg" alt="Image 4" onclick="openLightbox(this.src)">
-                <img src="./assets/img/pic5.jpg" alt="Image 5" onclick="openLightbox(this.src)">
-                <img src="./assets/img/pic6.jpg" alt="Image 6" onclick="openLightbox(this.src)">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 p-2">
+              <img class="img-fluid shadow rounded" style="border: 2px solid #6c757d73; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3) !important; padding: 5px;" src="./assets/img/pic1.jpg" alt="Image 1" onclick="openLightbox(this.src)">
             </div>
-        </div>
+            <div class="col-12 col-sm-6 col-md-4 p-2">
+              <img class="img-fluid shadow rounded" style="border: 2px solid #6c757d73; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3) !important; padding: 5px;"  id="image-grid" src="./assets/img/pic2.jpg" alt="Image 2" onclick="openLightbox(this.src)">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 p-2">
+              <img class="img-fluid shadow rounded" style="border: 2px solid #6c757d73; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3) !important; padding: 5px;"  id="image-grid" src="./assets/img/pic3.jpg" alt="Image 3" onclick="openLightbox(this.src)">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 p-2">
+              <img class="img-fluid shadow rounded" style="border: 2px solid #6c757d73; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3) !important; padding: 5px;"  id="image-grid" src="./assets/img/pic4.jpg" alt="Image 4" onclick="openLightbox(this.src)">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 p-2">
+              <img class="img-fluid shadow rounded" style="border: 2px solid #6c757d73; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3) !important; padding: 5px;"  id="image-grid" src="./assets/img/pic5.jpg" alt="Image 5" onclick="openLightbox(this.src)">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 p-2">
+              <img class="img-fluid shadow rounded" style="border: 2px solid #6c757d73; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3) !important; padding: 5px;"  id="image-grid" src="./assets/img/pic6.jpg" alt="Image 6" onclick="openLightbox(this.src)">
+            </div>
+          </div>
+        </div>        
     
         <div id="lightbox" onclick="closeLightbox()">
             <img id="lightbox-img" src="" alt="Enlarged Image">
@@ -209,49 +220,43 @@
 </html>
 
 <style>
-        #gallery-container {
-            padding: 20px;
-        }
-        #image-grid {
-            display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 20px !important;
-        }
-        #image-grid img {
-            width: 100% !important;
-            aspect-ratio: 3 / 4 !important;
-            object-fit: cover !important;
-            cursor: pointer !important;
-            transition: transform 0.3s ease !important;
-            padding: 5px;
-            border: 2px solid #6c757d73;
-            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3) !important;
-        }
-        #image-grid img:hover {
-            transform: scale(1.25) !important;
-        }
-        #lightbox {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            background: rgba(0, 0, 0, 0.8) !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            transition: opacity 0.3s ease, visibility 0.3s !important;
-        }
-        #lightbox.active {
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-        #lightbox img {
-            max-width: 90vw !important;
-            max-height: 90vh !important;
-            border-radius: 10px !important;
-        }
- 
+  
+
+img.img-fluid {
+  transition: transform 0.3s ease-in-out;
+}
+
+img.img-fluid:hover {
+  transform: scale(1.25);
+}
+
+#lightbox {
+    position: fixed; /* Ensures it covers the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#lightbox img {
+    max-width: 80%;  /* Reduced size */
+    max-height: 80%; /* Reduced size */
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.568);
+    transition: transform 0.3s ease-in-out;
+}
+
 </style>
