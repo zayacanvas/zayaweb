@@ -15,6 +15,7 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
   <!-- CSS Files -->
   <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="./assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
@@ -58,10 +59,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://demos.creative-tim.com/paper-kit-2/docs/1.0/getting-started/introduction.html" target="_blank" class="nav-link"><i class="nc-icon nc-album-2"></i> Gallery</a>
+            <a href="#gallery" target="_blank" class="nav-link"><i class="nc-icon nc-album-2"></i> Gallery</a>
           </li>
           <li class="nav-item">
-            <a href="https://www.creative-tim.com/product/paper-kit-2-pro?ref=pk2-free-local" target="_blank" class="btn btn-default btn-round"    style="color: black; background-color: white; transition: 0.3s;" 
+            <a href="#contactus" target="_blank" class="btn btn-default btn-round"    style="color: black; background-color: white; transition: 0.3s;" 
             onmouseover="this.style.backgroundColor='black'; this.style.color='white';" 
             onmouseout="this.style.backgroundColor='white'; this.style.color='black';">Contact US</a>
           </li>
@@ -76,13 +77,13 @@
       <div class="container">
         <div class="title-brand">
           <h1 class="presentation-title">ZAYA Canvas</h1>
-
         </div>
         <h2 class="presentation-subtitle text-center">Your World, Our Canvas</h2>
       </div>
     </div>
     <div class="moving-clouds" style="background-image: url('./assets/img/clouds.png'); "></div>
   </div>
+  <hr>
   <div class="main">
     <div class="section">
       <div class="container">
@@ -127,11 +128,75 @@
             }
         </script>
         </div>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <div class="container">
+        <div class="title">
+          <h1>The Moto</h1>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                  <ul id="tabs" class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#wesee" role="tab"><h3>What We See</h3></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#aboutus" role="tab"><h3>About US</h3></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#future" role="tab"><h3>The Future</h3></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="my-tab-content" class="tab-content text-justify">
+                <div class="tab-pane active" id="wesee" role="tabpanel">
+                  <h5>At ZAYA, we see the world through an artistic lens—where every moment, every scene, and every visual tells a unique story. Our approach goes beyond just taking pictures; we embrace the beauty of the fleeting, the raw emotion in a glance, and the poetry in movement.</h5>
+                  <br>
+                  <h5>We carefully frame each shot with a creative perspective, using light, shadows, and composition to transform ordinary scenes into extraordinary art. Whether it's a spontaneous laugh, a breathtaking landscape, or the intimate connection between people, we capture these elements in a way that evokes deep emotion and timeless beauty.</h5>
+                  <br>
+                  <h5>Photography, to us, is about more than just documenting moments—it's about seeing them in a way that elevates the experience. Every image we create is infused with artistry, depth, and soul, ensuring that your memories are not just preserved but truly celebrated.</h5>
+                </div>
+                <div class="tab-pane" id="aboutus" role="tabpanel">
+                  <h5>We are a passionate team driven by creativity and a love for visual storytelling. As an emerging company at the start of our journey, we are committed to capturing moments with a fresh perspective and artistic touch.</h5>
+                  <br>
+                  <h5>We believe photography is more than just images—it’s about emotions, memories, and the stories they tell. Whether it’s a personal portrait, an event, or a creative project, we strive to create visuals that leave a lasting impact.</h5>
+                  <br>
+                  <h5>This is just the beginning, and we’re excited to grow, evolve, and bring your moments to life through our lens.</h5>>
+                </div>
+                <div class="tab-pane" id="future" role="tabpanel">
+                  <h5>While we are currently dedicated to capturing the magic of weddings, our vision for the future extends far beyond. As we grow, we aim to expand into fashion photography, bringing style and elegance to life through our lens. Product photography is also a key focus, where we plan to create stunning visuals that showcase brands in the best light. Additionally, our passion for the wild drives us toward wildlife photography, capturing the beauty of nature and its untamed moments.</h5>
+                  <br>
+                  <h5>Our journey is just beginning, and we are excited to evolve into a versatile photography brand that tells stories across different realms of visual artistry.</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="section">
+          <div class="container">
+            <div class="container">
+              <div class="row">
+                <div class="image-container bg-white p-1">
+                  <img src="./assets/img/frame.jpg" class="img-fluid rounded" alt="Beautiful Image">
+              </div>
+              </div>
+            </div>        
+            </div>
+        </div>    
+        </div>
       </div>
 
       </div>
     </div>
-    <footer class="footer footer-black  footer-white ">
+    <footer style="background-color: rgb(0, 5, 17);" class="footer">
       <div class="container">
         <div class="row">
           <nav class="footer-nav">
@@ -258,5 +323,13 @@ img.img-fluid:hover {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.568);
     transition: transform 0.3s ease-in-out;
 }
+
+.image-container {
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+            background: white;
+        }
 
 </style>
