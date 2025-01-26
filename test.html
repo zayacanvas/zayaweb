@@ -3,228 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Text Animation</title>
+    <title>Website with Preloader</title>
     <style>
+        /* Preloader styles */
+        #preloader {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,500&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
 
-:root {
-    --bg-color: #534551;
-    --dark: #4e4b43;
-    --lightgold: rgba(245, 208, 169, 1);
-    --darkgold: rgba(197, 133, 104, 1);
-    --font-main: 'Raleway', sans-serif;
-    --font-accent: 'Playfair Display', serif;
-}
-
-/* Updated class names for header elements */
-.header-h1, .header-h2 {
-    color: var(--dark);
-}
-
-.header-h1 {
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    letter-spacing: 4px;
-}
-
-.header-h2 {
-    font-weight: 300;
-    font-size: 1rem;
-    letter-spacing: 2px;
-}
-
-.large-font {
-    font-size: 2.5rem;
-}
-
-.gold-gradient {
-    background: -webkit-linear-gradient(var(--lightgold), var(--darkgold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.accent-font {
-    font-family: var(--font-accent);
-}
-
-.one .header-h2 {
-    margin-bottom: 40px;
-}
-
-.one .header-h1:nth-of-type(2) {
-    margin-top: 10px;
-}
-
-.two {
-    line-height: 30px;
-    padding: 20px 0;
-}
-
-.one {
-    padding-bottom: 25px;
-}
-
-.two, .three, .four, .five {
-    padding: 25px 0;
-}
-
-.date {
-    display: grid;
-    width: 100px;
-    margin: 10px auto;
-    grid-template-areas: "year-one day year-two";
-}
-
-.date .header-h2 {
-    color: var(--darkgold);
-    font-weight: bold;
-}
-
-.date .day .header-h2 {
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-}
-
-.four .header-h1:nth-of-type(1), .four .header-h1:nth-of-type(2) {
-    color: var(--darkgold);
-    font-weight: bold;
-}
-
-.four .header-h1:nth-of-type(2) {
-    margin-bottom: 20px;
-}
-
-.five .header-h1 {
-    font-size: 1.25rem;
-}
-
-.five .header-h1:nth-of-type(2) {
-    font-size: 2rem;
-    color: var(--darkgold);
-    margin: 30px 0;
-}
-
-.five .header-h2 {
-    font-size: 1rem;
-}
-
-/* LAYOUT */
-.containerletter {
-    box-sizing: border-box;
-    width: 90%;  /* Use percentage for width to make it flexible */
-    max-width: 800px;  /* Set a max width to avoid overly large containers */
-    height: auto;
-    margin: 20px auto;
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-594540-png.png"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/paperboard-texture_95678-72.jpg");
-    box-shadow: 10px 10px 20px rgba(0,0,0,.3);
-}
-
-@media (max-width: 768px) {
-    .containerletter {
-        width: 95%;  /* Adjust width for smaller screens */
-        margin: 15px auto;  /* Adjust margin for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .containerletter {
-        width: 100%;  /* Make it take full width on very small devices */
-        margin: 10px auto;  /* Reduce margin */
-    }
-}
-
-
-.contentsletter {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr .2fr .5fr 1fr;
-    grid-template-areas: "one one" "two two" "three four" "five five";
-    padding-top: 300px;
-    text-align: center;
-    width: 60%;
-    margin: 0 auto;
-}
-
-.one {
-    grid-area: one;
-}
-
-.two {
-    grid-area: two;
-    border-top: 2px solid lighten(var(--dark), 50%);
-}
-
-.three {
-    grid-area: three;
-    border-top: 2px solid lighten(var(--dark), 50%);
-    border-bottom: 2px solid lighten(var(--dark), 50%);
-}
-
-.four {
-    grid-area: four;
-    border-top: 2px solid lighten(var(--dark), 50%);
-    border-left: 2px solid lighten(var(--dark), 50%);
-    border-bottom: 2px solid lighten(var(--dark), 50%);
-}
-
-.five {
-    grid-area: five;
-}
-
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-
-    <div class="containerletter">
-        <div class="contentsletter">
-            <div class="one">
-                <div class="header-h2">Together with their parents</div>
-                <div class="header-h1">Kyrie Anne Johnson</div>
-                <div class="header-h1 large-font gold-gradient accent-font">& Ricky Eugene Eckhardt</div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Main Content -->
+    <div id="content" style="display: none;">
+        <div class="loading-container">
+            <div class="loading-text">
+                <span>L</span>
+                <span>O</span>
+                <span>A</span>
+                <span>D</span>
+                <span>I</span>
+                <span>N</span>
+                <span>G</span>
             </div>
-            <div class="two">
-                <div class="header-h2">request the pleasure of your company</div>
-                <div class="header-h2">to celebrate their marriage</div>
-            </div>
-            <div class="three">
-                <div class="header-h1">FRIDAY,</div>
-                <div class="header-h1">JULY</div>
-                <div class="date accent-font">
-                    <div class="year-one">
-                        <div class="header-h2">2</div>
-                        <div class="header-h2">0</div>
-                    </div>
-                    <div class="day">
-                        <div class="header-h2">19</div>
-                    </div>
-                    <div class="year-two">
-                        <div class="header-h2">2</div>
-                        <div class="header-h2">0</div>
-                    </div>
-                </div>
-                <div class="header-h2">at 4 o'clock</div>
-            </div>
-            <div class="four">
-                <div class="header-h1">Botanical</div>
-                <div class="header-h1">Gardens</div>
-                <div class="header-h2">6700 Azalea Garden Rd</div>
-                <div class="header-h2">Norfolk, VA</div>
-                <div class="header-h2">23518</div>
-            </div>
-            <div class="five">
-                <div class="header-h1">DINNER + DRINKS TO FOLLOW</div>
-                <div class="header-h1">
-                    <i class="fas fa-utensils"></i>&nbsp;&nbsp;+&nbsp;&nbsp;
-                    <i class="fas fa-cocktail"></i>
-                </div>
-                <div class="header-h2">Kindly respond by July 1</div>
-            </div>
+        </div>
+        <div class="socials">
+            <a class="social-link" href="https://twitter.com/aybukeceylan" target="_top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                </svg>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/in/ayb%C3%BCkeceylan/" target="_top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                    <rect x="2" y="9" width="4" height="12"/>
+                    <circle cx="4" cy="4" r="2"/>
+                </svg>
+            </a>
         </div>
     </div>
 
+    <script>
+        // Wait until the page is fully loaded
+        window.addEventListener("load", function() {
+            document.getElementById("preloader").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        });
+    </script>
 </body>
 </html>
