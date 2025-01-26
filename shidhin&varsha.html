@@ -3,16 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/img//favicon.png">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-    <link rel="icon" type="image/png" href="./assets/img//favicon.png">
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
     <title>Shidhin weds Varsha</title>
     <style>
+      @import url('https://fonts.googleapis.com/css?family=Raleway:900&display=swap');
+
+      #containerwish {
+        margin: auto;
+        width: 100vw;
+        height: 80pt;
+        top: 0;
+        bottom: 0;
+        
+        filter: url(#threshold) blur(0.6px);
+      }
+
+      #text1, #text2 {
+        position: absolute;
+        width: 100%;
+        display: inline-block;
+        
+        font-family: 'Raleway', sans-serif;
+        font-size: 45px;
+        
+        text-align: center;
+        
+        user-select: none;
+      }
         /* Font-face rules for SF Pro font */
         @font-face {
             font-family: "SF Pro";
@@ -80,7 +108,7 @@
             position: fixed;
             top: 25px;
             left: 30px;
-            font-size: 2rem;
+            font-size: 3rem;
             color: white;
             z-index: 10;
             font-weight: normal;
@@ -98,6 +126,178 @@
             transform: translateY(0);
         }
 
+        @import url('https://fonts.googleapis.com/css?family=Raleway:300,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+
+:root {
+    --bg-color: #534551;
+    --dark: #4e4b43;
+    --lightgold: rgba(245, 208, 169, 1);
+    --darkgold: rgba(197, 133, 104, 1);
+    --font-main: 'Raleway', sans-serif;
+    --font-accent: 'Playfair Display', serif;
+}
+
+/* Updated class names for header elements */
+.header-h1, .header-h2 {
+    color: var(--dark);
+}
+
+.header-h1 {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+}
+
+.header-h2 {
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.large-font {
+    font-size: 2.5rem;
+}
+
+.gold-gradient {
+    background: -webkit-linear-gradient(var(--lightgold), var(--darkgold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.accent-font {
+    font-family: var(--font-accent);
+}
+
+.one .header-h2 {
+    margin-bottom: 40px;
+}
+
+.one .header-h1:nth-of-type(2) {
+    margin-top: 10px;
+}
+
+.two {
+    line-height: 30px;
+    padding: 20px 0;
+}
+
+.one {
+    padding-bottom: 25px;
+}
+
+.two, .three, .four, .five {
+    padding: 25px 0;
+}
+
+.date {
+    display: grid;
+    width: 100px;
+    margin: 10px auto;
+    grid-template-areas: "year-one day year-two";
+}
+
+.date .header-h2 {
+    color: rgb(97 39 13 / 87%);
+    font-weight: bold;
+}
+
+.date .day .header-h2 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+}
+
+.four .header-h1:nth-of-type(1), .four .header-h1:nth-of-type(2) {
+    color: rgb(97 39 13 / 87%);;
+    font-weight: bold;
+}
+
+.four .header-h1:nth-of-type(2) {
+    margin-bottom: 20px;
+}
+
+.five .header-h1 {
+    font-size: 1.25rem;
+}
+
+.five .header-h1:nth-of-type(2) {
+    font-size: 2rem;
+    color: var(--darkgold);
+    margin: 30px 0;
+}
+
+.five .header-h2 {
+    font-size: 1rem;
+}
+
+/* LAYOUT */
+.containerletter {
+    box-sizing: border-box;
+    width: 90%;  /* Use percentage for width to make it flexible */
+    max-width: 800px;  /* Set a max width to avoid overly large containers */
+    height: auto;
+    margin: 20px auto;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-594540-png.png"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/paperboard-texture_95678-72.jpg");
+    box-shadow: 10px 10px 20px rgba(0,0,0,.3);
+}
+
+@media (max-width: 768px) {
+    .containerletter {
+        width: 95%;  /* Adjust width for smaller screens */
+        margin: 15px auto;  /* Adjust margin for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .containerletter {
+        width: 100%;  /* Make it take full width on very small devices */
+        margin: 10px auto;  /* Reduce margin */
+    }
+}
+
+.contentsletter {
+    /* display: grid; */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr .2fr .5fr 1fr;
+    grid-template-areas: "one one" "two two" "three four" "five five";
+    padding-top: 200px;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.one {
+    grid-area: one;
+}
+
+.two {
+    grid-area: two;
+    border-top: 2px solid lighten(var(--dark), 50%);
+}
+
+.three {
+    grid-area: three;
+    border-top: 2px solid lighten(var(--dark), 50%);
+    border-bottom: 2px solid lighten(var(--dark), 50%);
+}
+
+.four {
+    grid-area: four;
+    border-top: 2px solid lighten(var(--dark), 50%);
+    border-left: 2px solid lighten(var(--dark), 50%);
+    border-bottom: 2px solid lighten(var(--dark), 50%);
+}
+
+.five {
+    grid-area: five;
+}
+        .separator {
+            width: 2px;
+            background-color: #000;
+            height: 100%;
+        }
+
     </style>
 </head>
 <body>
@@ -109,7 +309,7 @@
             ZAYA <span id="changing-word" class="word">🖼️ Canvas</span>
           </button>
         </a>
-      </div>      
+    </div>      
       
 
     <script>
@@ -133,13 +333,108 @@
     <div class="wrapper">
         <div class="content">
           <section class="section hero"></section>
-          <section class="section gradient-purple"></section>
-          <section class="section gradient-blue"></section>
         </div>
         <div class="image-container">
           <img src="./assets/img/1.png" alt="image">
-      
         </div>
+        <div class="container">
+          <div class="containerletter">
+            <div class="contentsletter">
+                <div class="one">
+                    <div class="header-h2">Together with our parents</div>
+                    <div class="header-h1" style="padding-bottom: 8px;">SHIDHIN</div>
+                    <div class="header-h1 large-font gold-gradient accent-font">& VARSHA</div>
+                </div>
+                <div class="two">
+                    <div class="header-h2">request the pleasure of your company</div>
+                    <div class="header-h2">to celebrate Our marriage</div>
+                </div>
+                <div class="three">
+                    <div class="header-h1">SUNDAY,</div>
+                    <div class="header-h1">FEBRUARY</div>
+                    <div class="date accent-font">
+                        <div class="year-one">
+                            <div class="header-h2">2</div>
+                            <div class="header-h2">0</div>
+                        </div>
+                        <div class="day">
+                            <div class="header-h2">16</div>
+                        </div>
+                        <div class="year-two">
+                            <div class="header-h2">2</div>
+                            <div class="header-h2">5</div>
+                        </div>
+                    </div>
+                    <div class="header-h2">at 11:30</div>
+                </div>
+                <div class="four">
+                    <div class="header-h1">Dwaraka Auditorium</div>
+                    <div class="header-h1">Veeralam</div>
+                    <div class="header-h2">Attingal</div>
+                    <div class="header-h2">Trivandrum</div>
+                    <div class="header-h2">695101</div>
+                </div>
+                <!-- <div class="five">
+                    <div class="header-h1">DINNER + DRINKS TO FOLLOW</div>
+                    <div class="header-h1">
+                        <i class="fas fa-utensils"></i>&nbsp;&nbsp;+&nbsp;&nbsp;
+                        <i class="fas fa-cocktail"></i>
+                    </div>
+                    <div class="header-h2">Kindly respond by July 1</div>
+                </div> -->
+            </div>
+        </div>
+        </div>
+        <hr>
+        <div>
+          <!-- Explanation in JS tab -->
+
+          <!-- The two texts -->
+          <div id="containerwish" style="padding-top: 40px;">
+            <span id="text1"></span>
+            <span id="text2"></span>
+          </div>
+
+          <!-- The SVG filter used to create the merging effect -->
+          <svg id="filters">
+            <defs>
+              <filter id="threshold">
+                <!-- Basically just a threshold effect - pixels with a high enough opacity are set to full opacity, and all other pixels are set to completely transparent. -->
+                <feColorMatrix in="SourceGraphic"
+                    type="matrix"
+                    values="1 0 0 0 0
+                            0 1 0 0 0
+                            0 0 1 0 0
+                            0 0 0 255 -140" />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <hr>
+        <div class="container mt-4">
+          <div class="row">
+              <div class="col-12 col-md-5 mb-4">
+                  <div id="map1" class="embed-responsive embed-responsive-16by9">
+                    <h3>Wedding Venue</h3>
+                      <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.9609885047807!2d76.80916697501495!3d8.695254691353375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05e9f7aba139bd%3A0x9dfffea988179044!2sDwaraka%20Auditorium%20(AC)!5e0!3m2!1sen!2sin!4v1737904436660!5m2!1sen!2sin" style="border:0; width: 500px; height: 600px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+              </div>
+              
+              <div class="col-12 col-md-1 d-flex align-items-center justify-content-center mb-4">
+                  <div class="separator"></div>
+              </div>
+      
+              <div class="col-12 col-md-5">
+                  <div id="map2" class="embed-responsive embed-responsive-16by9">
+                    <h3>Groom's Home Location</h3>
+                      <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15774.771440313234!2d76.81536011371544!3d8.720687320975864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05c2769f2a29ef%3A0x2e791f3cf9a17a5a!2sAlamcode%2C%20Kerala%20695102!5e0!3m2!1sen!2sin!4v1737904725043!5m2!1sen!2sin" style="border:0; width: 500px; height: 600px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <hr>
+
       </div>
     </div>
 
@@ -176,6 +471,98 @@
               "<"
             );
         });
+    </script>
+    <script>
+      const elts = {
+	text1: document.getElementById("text1"),
+	text2: document.getElementById("text2")
+};
+
+const texts = [
+	"ZAYA",
+	"is",
+	"wishing",
+	"Shidhin & Varsha",
+	"Happy",
+	"Married",
+	"Life"
+];
+
+// Controls the speed of morphing.
+const morphTime = 1;
+const cooldownTime = 0.25;
+
+let textIndex = texts.length - 1;
+let time = new Date();
+let morph = 0;
+let cooldown = cooldownTime;
+
+elts.text1.textContent = texts[textIndex % texts.length];
+elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+
+function doMorph() {
+	morph -= cooldown;
+	cooldown = 0;
+	
+	let fraction = morph / morphTime;
+	
+	if (fraction > 1) {
+		cooldown = cooldownTime;
+		fraction = 1;
+	}
+	
+	setMorph(fraction);
+}
+
+// A lot of the magic happens here, this is what applies the blur filter to the text.
+function setMorph(fraction) {
+	// fraction = Math.cos(fraction * Math.PI) / -2 + .5;
+	
+	elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+	elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+	
+	fraction = 1 - fraction;
+	elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+	elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+	
+	elts.text1.textContent = texts[textIndex % texts.length];
+	elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+}
+
+function doCooldown() {
+	morph = 0;
+	
+	elts.text2.style.filter = "";
+	elts.text2.style.opacity = "100%";
+	
+	elts.text1.style.filter = "";
+	elts.text1.style.opacity = "0%";
+}
+
+// Animation loop, which is called every frame.
+function animate() {
+	requestAnimationFrame(animate);
+	
+	let newTime = new Date();
+	let shouldIncrementIndex = cooldown > 0;
+	let dt = (newTime - time) / 1000;
+	time = newTime;
+	
+	cooldown -= dt;
+	
+	if (cooldown <= 0) {
+		if (shouldIncrementIndex) {
+			textIndex++;
+		}
+		
+		doMorph();
+	} else {
+		doCooldown();
+	}
+}
+
+// Start the animation.
+animate();
     </script>
 </body>
 </html>
